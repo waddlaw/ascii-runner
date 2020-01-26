@@ -7,7 +7,7 @@ import System.Random (getStdRandom, randomR)
 
 import Brick
 import Brick.BChan (newBChan)
-import Graphics.Vty (Event(EvKey), Key(KChar, KEnter), mkVty, defaultConfig)
+import Graphics.Vty (Event(EvKey), Key(KChar, KEnter), mkVty, defaultConfig, standardIOConfig)
 
 import qualified Actions (restart, jump, frame)
 import Attr (attr)
@@ -53,4 +53,6 @@ play = do
     loop chan
     s <- getDimensions
     sp <- getSpeed
-    void $ customMain (mkVty defaultConfig) (Just chan) app $ create s sp
+    cfg <- standardIOConfig
+    vty <- mkVty cfg
+    void $ customMain vty (mkVty defaultConfig) (Just chan) app $ create s sp

@@ -1,11 +1,13 @@
--- This file has been generated from package.yaml by hpack version 0.28.2.
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 2b6a6397cffc6bf327499d7a982a0d2436bf25b6bc52c2a33dd9a1eedad91a3d
+-- hash: 193a1b0a32a439d6538d28b84503019139fadecbdb487a069455048280d3a118
 
 name:           runner
-version:        0.1.0.0
+version:        0.2.0.0
 synopsis:       An ASCII inifinite runner
 description:    Please see the README on GitHub at <https://github.com/smallhadroncollider/ascii-runner#readme>
 category:       Game
@@ -17,7 +19,6 @@ copyright:      2018 Mark Wales
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
-cabal-version:  >= 1.10
 extra-source-files:
     README.md
 
