@@ -1,8 +1,9 @@
+{-# LANGUAGE NoImplicitPrelude #-}
+
 module Main (main) where
 
 import ClassyPrelude
-
-import Game (play)
+import Game
 
 main :: IO ()
 main = play

@@ -1,5 +1,9 @@
 # ASCII-Runner
 
+[![stack](https://github.com/haskell-game-archives/ascii-runner/workflows/stack/badge.svg)](https://github.com/haskell-game-archives/ascii-runner/actions?query=workflow%3Astack)
+[![cabal](https://github.com/haskell-game-archives/ascii-runner/workflows/cabal/badge.svg)](https://github.com/haskell-game-archives/ascii-runner/actions?query=workflow%3Acabal)
+[![lint](https://github.com/haskell-game-archives/ascii-runner/workflows/lint/badge.svg)](https://github.com/haskell-game-archives/ascii-runner/actions?query=workflow%3Alint)
+
 An infinite runner in your terminal
 
 If you enjoy ASCII-runner, you might also like [taskell](https://github.com/smallhadroncollider/taskell) - a command-line Kanban board.

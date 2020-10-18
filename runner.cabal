@@ -1,66 +1,55 @@
-cabal-version: 1.12
+cabal-version:      2.4
+name:               runner
+version:            0.2.0.0
+synopsis:           An ASCII inifinite runner
+description:
+  Please see the README on GitHub at <https://github.com/smallhadroncollider/ascii-runner#readme>
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
---
--- see: https://github.com/sol/hpack
---
--- hash: 193a1b0a32a439d6538d28b84503019139fadecbdb487a069455048280d3a118
+category:           Game
+homepage:           https://github.com/smallhadroncollider/ascii-runner#readme
+bug-reports:        https://github.com/smallhadroncollider/ascii-runner/issues
+author:             Mark Wales
+maintainer:         mark@smallhadroncollider.com
+copyright:          2018 Mark Wales
+license:            BSD-3-Clause
+license-file:       LICENSE
+build-type:         Simple
+extra-source-files: README.md
+tested-with:        GHC ==8.6.5 || ==8.8.4 || ==8.10.2
 
-name:           runner
-version:        0.2.0.0
-synopsis:       An ASCII inifinite runner
-description:    Please see the README on GitHub at <https://github.com/smallhadroncollider/ascii-runner#readme>
-category:       Game
-homepage:       https://github.com/smallhadroncollider/ascii-runner#readme
-bug-reports:    https://github.com/smallhadroncollider/ascii-runner/issues
-author:         Mark Wales
-maintainer:     mark@smallhadroncollider.com
-copyright:      2018 Mark Wales
-license:        BSD3
-license-file:   LICENSE
-build-type:     Simple
-extra-source-files:
-    README.md
+common common
+  build-depends:
+    , base            >=4.12 && <4.15
+    , classy-prelude  ^>=1.5
 
-source-repository head
-  type: git
-  location: https://github.com/smallhadroncollider/ascii-runner
+  ghc-options:      -Wall
+  default-language: Haskell2010
 
 library
-  exposed-modules:
-      Actions
-      Attr
-      Draw
-      Game
-      Loop
-      Types
-      Window
-  other-modules:
-      Paths_runner
-  hs-source-dirs:
-      src
-  default-extensions: OverloadedStrings NoImplicitPrelude
+  import:          common
+  hs-source-dirs:  src
   build-depends:
-      base >=4.7 && <5
-    , brick
-    , classy-prelude
-    , containers
-    , lens
-    , random
-    , terminal-size
-    , vty
-  default-language: Haskell2010
+    , brick          >=0.47 && <0.58
+    , containers     ^>=0.6
+    , lens           >=4.17 && <4.20
+    , random         >=1.1  && <1.3
+    , terminal-size  ^>=0.3
+    , vty            >=5.25 && <5.32
+
+  -- cabal-fmt: expand src
+  exposed-modules:
+    Actions
+    Attr
+    Draw
+    Game
+    Loop
+    Types
+    Window
+
+  other-modules:   Paths_runner
 
 executable runner
-  main-is: Main.hs
-  other-modules:
-      Paths_runner
-  hs-source-dirs:
-      app
-  default-extensions: OverloadedStrings NoImplicitPrelude
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
-  build-depends:
-      base >=4.7 && <5
-    , classy-prelude
-    , runner
-  default-language: Haskell2010
+  import:        common
+  main-is:       app/Main.hs
+  build-depends: runner
+  ghc-options:   -O2
