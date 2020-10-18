@@ -1,0 +1,43 @@
+name: stack
+
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+    branches:
+      - '*'
+  schedule:
+    - cron: "00 15 * * *"
+
+jobs:
+  build:
+    name: ${{ matrix.os }} (${{ matrix.resolver }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, macos-10.15]
+        resolver: ["lts-14", "lts-16", "nightly"]
+        cache-version: ["2020-10-18"]
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-haskell@v1
+      with:
+        ghc-version: "8.8.4"
+        stack-version: "2.5.1"
+        enable-stack: true
+
+    - name: Install dependencies
+      env:
+        STACK_YAML: stack-${{ matrix.resolver }}.yaml
+      run: |
+        stack config set resolver ${{ matrix.resolver }}
+        stack test --only-dependencies
+
+    - name: Build
+      env:
+        STACK_YAML: stack-${{ matrix.resolver }}.yaml
+      run: |
+        stack test --fast
+        stack install --fast

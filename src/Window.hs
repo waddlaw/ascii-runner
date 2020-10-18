@@ -1,11 +1,13 @@
-module Window (
-    Dimensions
-  , getDimensions
-) where
+{-# LANGUAGE NoImplicitPrelude #-}
+
+module Window
+  ( Dimensions,
+    getDimensions,
+  )
+where
 
 import ClassyPrelude
-
-import qualified System.Console.Terminal.Size as S (Window(..), size)
+import qualified System.Console.Terminal.Size as S
 
 type Dimensions = (Int, Int)
 
