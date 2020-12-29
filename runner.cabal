@@ -15,7 +15,7 @@ license:            BSD-3-Clause
 license-file:       LICENSE
 build-type:         Simple
 extra-source-files: README.md
-tested-with:        GHC ==8.6.5 || ==8.8.4 || ==8.10.2
+tested-with:        GHC ==8.6.5 || ==8.8.4 || ==8.10.3
 
 common common
   build-depends:
