@@ -2,7 +2,7 @@ name: 'dependencies check'
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
   schedule:
     - cron: "00 15 * * *"
