@@ -29,7 +29,7 @@ library
   import:          common
   hs-source-dirs:  src
   build-depends:
-    , brick          >=0.47 && <0.58
+    , brick          >=0.47 && <0.59
     , containers     ^>=0.6
     , lens           >=4.17 && <4.20
     , random         >=1.1  && <1.3
